@@ -8,9 +8,14 @@ class Movies extends Component {
         return (
             <div className="section">
                 <div className="container">
+                    <h1 className="title">Popular movies</h1>
                     <div className="columns">
                         {this.props.movies.map(movie => (
-                            <MovieItem key={movie.id} movieItem={movie} genres={this.props.genres} />
+                            <MovieItem
+                                key={movie.id}
+                                movieItem={movie}
+                                getMovieGenres={this.props.getMovieGenres}
+                            />
                         ))}
                     </div>
                 </div>

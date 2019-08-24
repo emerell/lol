@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
-import { BrowserRouter as Router, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import axios from 'axios';
 
 import Movies from './movies/Movies';
+import Movie from './movies/Movie';
 import Header from './layout/Header';
 
 require('../styles/style.styl');
@@ -11,7 +12,7 @@ require('../styles/style.styl');
 export class App extends Component {
     state = {
         movies: [],
-        genres: []
+        genres: [],
     }
 
     componentDidMount() { //TODO: This request should be changed after adding paggination
@@ -22,11 +23,27 @@ export class App extends Component {
             .then(response => this.setState({ genres: response.data.genres }))
     }
 
+    getMovieGenres = movieGenresIds => (
+        this.state.genres.filter(genre => movieGenresIds.includes(genre.id))
+    )
+
     render() {
         return (
             <Router>
                 <div>
-                    <Movies movies={this.state.movies} genres={this.state.genres} />
+                    <Switch>
+                        <Route exact path="/" render={props => (
+                            <Movies
+                                movies={this.state.movies}
+                                getMovieGenres={this.getMovieGenres}
+                            />
+                        )} />
+                        <Route exact path="/movies/:number" render={props => (
+                            <Movie
+                                movieId={props.match.params.number}
+                            />
+                        )} />
+                    </Switch>
                 </div>
             </Router>
         )
