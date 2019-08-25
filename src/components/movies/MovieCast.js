@@ -7,7 +7,7 @@ export class MovieCast extends Component {
             <section className="movie-cast section">
                 <div className="container">
                     <h2 className="movie-cast__title title">Cast</h2>
-                    <div className="columns movie-cast__list">
+                    <div className="columns movie-cast__list scroll-list">
                         {this.props.cast.map(actor => (
                             <div className="column movie-cast__item" key={actor.id}>
                                 <div className="actor-card">
