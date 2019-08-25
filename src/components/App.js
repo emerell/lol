@@ -4,7 +4,7 @@ import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import axios from 'axios';
 
 import Movies from './movies/Movies';
-import Movie from './movies/Movie';
+import MoviePage from './pages/MoviePage';
 import Header from './layout/Header';
 
 require('../styles/style.styl');
@@ -38,8 +38,8 @@ export class App extends Component {
                                 getMovieGenres={this.getMovieGenres}
                             />
                         )} />
-                        <Route exact path="/movies/:number" render={props => (
-                            <Movie
+                        <Route exact path="/:number" render={props => (
+                            <MoviePage
                                 movieId={props.match.params.number}
                             />
                         )} />

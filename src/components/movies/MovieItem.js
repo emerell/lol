@@ -18,10 +18,10 @@ export class MovieItem extends Component {
         const genres = this.props.getMovieGenres(genre_ids);
 
         const posterImageUrl = `https://image.tmdb.org/t/p/w342${poster_path}`
-        const movieUrl = `/movies/${id}`
+        const movieUrl = `/${id}`
 
         return (
-            <div className="column">
+            <div className="column is-half-desktop">
                 <article className="movie-card">
                     <Link to={movieUrl} className="movie-card__poster-box">
                         <div className="movie-card__background"
@@ -36,7 +36,7 @@ export class MovieItem extends Component {
                         </h2>
                         <div className="movie-card__genres">
                             {genres.map(genre => (
-                                <a href="#" className="movie-card__genre" key={genre.id}>{genre.name}</a>
+                                <a href="#" className="movie-card__genre tag" key={genre.id}>{genre.name}</a>
                             ))}
                         </div>
                         <p className="movie-card__overview">{this.truncateOverviewText(150)}</p>

@@ -1,6 +1,24 @@
 .column {
     padding: .75rem;
+    +breakpoint(tablet) {
+        display: block;
+        flex-basis: 0;
+        flex-grow: 1;
+        flex-shrink: 1;
+    }
+}
+
+.column.is-half-desktop {
+    padding: .75rem;
     +breakpoint(desktop) {
+        flex: none;
         width: 50%;
     }
+}
+
+.column.is-8 {
+    +breakpoint(tablet) {
+        flex: none;
+        width: 66.66667%;
+    }  
 }
