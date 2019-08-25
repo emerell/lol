@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import axios from 'axios';
 
 import MovieDetails from '../movies/MovieDetails';
+import MovieCast from '../movies/MovieCast';
 
 export class MoviePage extends Component {
     state = {
@@ -21,14 +22,7 @@ export class MoviePage extends Component {
         return (
             <article>
                 <MovieDetails movie={this.state.movie} />
-                <section className="movie-cast section">
-                    <div className="container">
-                        <h2 className="movie-cast__title title">Cast</h2>
-                        <div className="columns movie-cast__list">
-                            
-                        </div>
-                    </div> 
-                </section>
+                <MovieCast cast={this.state.cast}/>
             </article>
         )
     }

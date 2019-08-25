@@ -8,7 +8,7 @@ class Movies extends Component {
         return (
             <div className="section">
                 <div className="container">
-                    <h1 className="title">Popular movies</h1>
+                    <h1 className="title mb-3rem">Popular movies</h1>
                     <div className="columns">
                         {this.props.movies.map(movie => (
                             <MovieItem
