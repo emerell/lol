@@ -23,6 +23,8 @@ export class App extends Component {
             .then(response => this.setState({ genres: response.data.genres }))
     }
 
+    getMovieReleaseYear = releaseDate => releaseDate.slice(0, 4)
+
     getMovieGenres = movieGenresIds => (
         this.state.genres.filter(genre => movieGenresIds.includes(genre.id))
     )
@@ -36,11 +38,13 @@ export class App extends Component {
                             <Movies
                                 movies={this.state.movies}
                                 getMovieGenres={this.getMovieGenres}
+                                getMovieReleaseYear={this.getMovieReleaseYear}
                             />
                         )} />
                         <Route exact path="/:number" render={props => (
                             <MoviePage
                                 movieId={props.match.params.number}
+                                getMovieReleaseYear={this.getMovieReleaseYear}
                             />
                         )} />
                     </Switch>

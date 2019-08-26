@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 
-import MovieDetails from '../movies/MovieDetails';
+import MovieInfo from '../movies/MovieInfo';
 import MovieCast from '../movies/MovieCast';
 import MovieRecommendations from '../movies/MovieRecommendations';
 
@@ -26,9 +26,15 @@ export class MoviePage extends Component {
     render() {
         return (
             <article>
-                <MovieDetails movie={this.state.movie} />
+                <MovieInfo 
+                    movie={this.state.movie}
+                    getMovieReleaseYear={this.props.getMovieReleaseYear}
+                     />
                 <MovieCast cast={this.state.cast} />
-                <MovieRecommendations recommendations={this.state.recommendations.slice(11)} />
+                <MovieRecommendations 
+                    recommendations={this.state.recommendations.slice(11)}
+                    getMovieReleaseYear={this.props.getMovieReleaseYear}
+                     />
             </article>
         )
     }

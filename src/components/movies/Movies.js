@@ -15,6 +15,7 @@ class Movies extends Component {
                                 key={movie.id}
                                 movieItem={movie}
                                 getMovieGenres={this.props.getMovieGenres}
+                                getMovieReleaseYear={this.props.getMovieReleaseYear}
                             />
                         ))}
                     </div>

@@ -3,8 +3,6 @@ import { Link } from 'react-router-dom';
 
 export class MovieRecommendations extends Component {
 
-    getMovieReleaseYear = releaseDate => `${releaseDate.slice(0, 4)}`
-
     render() {
         return (
             <section className="movie-recommendation section">
@@ -23,7 +21,7 @@ export class MovieRecommendations extends Component {
                                     </Link>
                                     <h3 className="movie-simple-card__title">{recommendation.title}</h3>
                                     <p className="movie-simple-card__year">
-                                        {this.getMovieReleaseYear(recommendation.release_date)}
+                                        {this.props.getMovieReleaseYear(recommendation.release_date)}
                                     </p>
                                 </div>
                             </div>
