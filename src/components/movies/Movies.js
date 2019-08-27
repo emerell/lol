@@ -1,14 +1,21 @@
 import React, { Component } from 'react';
+
 import MovieItem from './MovieItem';
+import Pagination from '../Pagination';
+
 import PropTypes from 'prop-types';
 
 class Movies extends Component {
-
     render() {
         return (
             <div className="section">
                 <div className="container">
                     <h1 className="title mb-3rem">Popular movies</h1>
+                    <Pagination 
+                        currentPage={this.props.currentPage}
+                        paginateToPreviousPage={this.props.paginateToPreviousPage}
+                        paginateToNextPage={this.props.paginateToNextPage}
+                    />
                     <div className="columns">
                         {this.props.movies.map(movie => (
                             <MovieItem
@@ -19,6 +26,11 @@ class Movies extends Component {
                             />
                         ))}
                     </div>
+                    <Pagination 
+                        currentPage={this.props.currentPage}
+                        paginateToPreviousPage={this.props.paginateToPreviousPage}
+                        paginateToNextPage={this.props.paginateToNextPage}
+                    />
                 </div>
             </div>
         )

@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component, Fragment } from 'react';
 import ReactDOM from 'react-dom';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import axios from 'axios';
@@ -13,14 +13,23 @@ export class App extends Component {
     state = {
         movies: [],
         genres: [],
+        currentPage: 1
     }
 
-    componentDidMount() { //TODO: This request should be changed after adding paggination
-        axios.get("https://api.themoviedb.org/3/movie/popular?api_key=%20848fb762df71f7faf69c83a108de834a&language=en-US&page=1")
-            .then(response => this.setState({ movies: response.data.results }))
+    componentDidMount() {
+        this.fetchPopularMoviesData();
 
         axios.get("https://api.themoviedb.org/3/genre/movie/list?api_key=848fb762df71f7faf69c83a108de834a&language=en-US")
             .then(response => this.setState({ genres: response.data.genres }))
+    }
+
+    componentDidUpdate(prevProps) {
+        window.scrollTo(0, 0)
+    }
+
+    fetchPopularMoviesData = () => {
+        axios.get(`https://api.themoviedb.org/3/movie/popular?api_key=848fb762df71f7faf69c83a108de834a&language=en-US&page=${this.state.currentPage}`)
+            .then(response => this.setState({ movies: response.data.results }))
     }
 
     getMovieReleaseYear = releaseDate => releaseDate.slice(0, 4)
@@ -28,6 +37,16 @@ export class App extends Component {
     getMovieGenres = movieGenresIds => (
         this.state.genres.filter(genre => movieGenresIds.includes(genre.id))
     )
+
+    paginateToPreviousPage = () => {
+        this.setState({ currentPage: this.state.currentPage - 1});
+        this.fetchPopularMoviesData();
+    }
+
+    paginateToNextPage = () => {
+        this.setState({ currentPage: this.state.currentPage + 1});
+        this.fetchPopularMoviesData();
+    }
 
     render() {
         return (
@@ -39,6 +58,9 @@ export class App extends Component {
                                 movies={this.state.movies}
                                 getMovieGenres={this.getMovieGenres}
                                 getMovieReleaseYear={this.getMovieReleaseYear}
+                                currentPage={this.state.currentPage}
+                                paginateToPreviousPage={this.paginateToPreviousPage}
+                                paginateToNextPage={this.paginateToNextPage}
                             />
                         )} />
                         <Route exact path="/:number" render={props => (

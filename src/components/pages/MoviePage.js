@@ -9,17 +9,28 @@ export class MoviePage extends Component {
     state = {
         movie: {},
         cast: [],
-        recommendations: []
+        recommendations: [],
     }
 
     componentDidMount() {
-        axios.get(`https://api.themoviedb.org/3/movie/${this.props.movieId}?api_key=848fb762df71f7faf69c83a108de834a&language=en-US`)
+        this.fetchData(this.props.movieId);
+    }
+
+    componentDidUpdate(prevProps) {
+        if (this.props.movieId !== prevProps.movieId) {
+            this.fetchData(this.props.movieId)
+            window.scrollTo(0, 0)
+        }
+    }
+
+    fetchData = movieId => {
+        axios.get(`https://api.themoviedb.org/3/movie/${movieId}?api_key=848fb762df71f7faf69c83a108de834a&language=en-US`)
         .then(response => this.setState({ movie: response.data }))
 
-        axios.get(`https://api.themoviedb.org/3/movie/${this.props.movieId}/credits?api_key=848fb762df71f7faf69c83a108de834a`)
+        axios.get(`https://api.themoviedb.org/3/movie/${movieId}/credits?api_key=848fb762df71f7faf69c83a108de834a`)
         .then(response => this.setState({ cast: response.data.cast }))
 
-        axios.get(`https://api.themoviedb.org/3/movie/${this.props.movieId}/recommendations?api_key=848fb762df71f7faf69c83a108de834a&language=en-US&page=1`)
+        axios.get(`https://api.themoviedb.org/3/movie/${movieId}/recommendations?api_key=848fb762df71f7faf69c83a108de834a&language=en-US&page=1`)
         .then(response => this.setState({ recommendations: response.data.results }))
     }
 

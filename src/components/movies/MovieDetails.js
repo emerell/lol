@@ -19,6 +19,7 @@ export class MovieDetails extends Component {
             "Budget": budget && this.validateCurrencyView(budget) || "No info" ,
             "Revenu": revenue && this.validateCurrencyView(revenue) || "No info"
         }
+
         return (
             <section className="movie-info-section">
                 <h2 className="visually-hidden">General info</h2>
