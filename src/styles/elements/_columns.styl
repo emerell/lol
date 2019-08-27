@@ -2,3 +2,13 @@
    display: flex;
    flex-wrap: wrap; 
 }
+
+.columns--movies {
+   +breakpoint(tablet) {
+      display: block;
+   }
+   +breakpoint(desktop) {
+      display: flex;
+   }
+    
+}

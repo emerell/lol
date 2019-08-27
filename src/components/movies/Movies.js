@@ -16,7 +16,7 @@ class Movies extends Component {
                         paginateToPreviousPage={this.props.paginateToPreviousPage}
                         paginateToNextPage={this.props.paginateToNextPage}
                     />
-                    <div className="columns">
+                    <div className="columns columns--movies">
                         {this.props.movies.map(movie => (
                             <MovieItem
                                 key={movie.id}

@@ -12,7 +12,7 @@ const Pagination = ({
         <nav>
             <ul className="pagination">
                 <button 
-                    className="pagination__button" 
+                    className="pagination__button pagination__button--prev" 
                     onClick={() => paginateToPreviousPage()}
                 >
                     Previous page
@@ -24,7 +24,7 @@ const Pagination = ({
                     <span className="pagination__number">{PAGENUMBERS}</span>
                 </span>
                 <button 
-                    className="pagination__button"
+                    className="pagination__button pagination__button--next"
                     onClick={() => paginateToNextPage()}
                     >Next Page</button>
             </ul>
