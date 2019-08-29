@@ -13,8 +13,8 @@ class Movies extends Component {
                     <h1 className="title mb-3rem">Popular movies</h1>
                     <Pagination 
                         currentPage={this.props.currentPage}
-                        paginateToPreviousPage={this.props.paginateToPreviousPage}
-                        paginateToNextPage={this.props.paginateToNextPage}
+                        decreaseCurrentPageValue={this.props.decreaseCurrentPageValue}
+                        increaseCurrentPageValue={this.props.increaseCurrentPageValue}
                     />
                     <div className="columns columns--movies">
                         {this.props.movies.map(movie => (
@@ -28,8 +28,8 @@ class Movies extends Component {
                     </div>
                     <Pagination 
                         currentPage={this.props.currentPage}
-                        paginateToPreviousPage={this.props.paginateToPreviousPage}
-                        paginateToNextPage={this.props.paginateToNextPage}
+                        decreaseCurrentPageValue={this.props.decreaseCurrentPageValue}
+                        increaseCurrentPageValue={this.props.increaseCurrentPageValue}
                     />
                 </div>
             </div>

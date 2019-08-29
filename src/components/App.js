@@ -20,16 +20,16 @@ export class App extends Component {
         this.fetchPopularMoviesData();
 
         axios.get("https://api.themoviedb.org/3/genre/movie/list?api_key=848fb762df71f7faf69c83a108de834a&language=en-US")
-            .then(response => this.setState({ genres: response.data.genres }))
+            .then(response => this.setState({ genres: response.data.genres }));
     }
 
     componentDidUpdate(prevProps) {
-        window.scrollTo(0, 0)
+        window.scrollTo(0, 0);
     }
 
     fetchPopularMoviesData = () => {
         axios.get(`https://api.themoviedb.org/3/movie/popular?api_key=848fb762df71f7faf69c83a108de834a&language=en-US&page=${this.state.currentPage}`)
-            .then(response => this.setState({ movies: response.data.results }))
+            .then(response => this.setState({ movies: response.data.results }));
     }
 
     getMovieReleaseYear = releaseDate => releaseDate.slice(0, 4)
@@ -38,14 +38,14 @@ export class App extends Component {
         this.state.genres.filter(genre => movieGenresIds.includes(genre.id))
     )
 
-    paginateToPreviousPage = () => {
-        this.setState({ currentPage: this.state.currentPage - 1});
-        this.fetchPopularMoviesData();
+    decreaseCurrentPageValue = () => {
+        this.setState({ currentPage: this.state.currentPage - 1}, 
+        () => this.fetchPopularMoviesData());
     }
 
-    paginateToNextPage = () => {
-        this.setState({ currentPage: this.state.currentPage + 1});
-        this.fetchPopularMoviesData();
+    increaseCurrentPageValue = () => {
+        this.setState({ currentPage: this.state.currentPage + 1}, 
+        () => this.fetchPopularMoviesData());
     }
 
     render() {
@@ -59,8 +59,8 @@ export class App extends Component {
                                 getMovieGenres={this.getMovieGenres}
                                 getMovieReleaseYear={this.getMovieReleaseYear}
                                 currentPage={this.state.currentPage}
-                                paginateToPreviousPage={this.paginateToPreviousPage}
-                                paginateToNextPage={this.paginateToNextPage}
+                                decreaseCurrentPageValue={this.decreaseCurrentPageValue}
+                                increaseCurrentPageValue={this.increaseCurrentPageValue}
                             />
                         )} />
                         <Route exact path="/:number" render={props => (
