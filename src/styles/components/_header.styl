@@ -1,0 +1,23 @@
+.header {
+    +breakpoint(desktop) {
+        display: flex;
+    }
+}
+
+.header__navbar {
+    +breakpoint(touch) {
+        display: block;
+        padding: .5rem 0;
+        margin-right: 15px;
+        margin-left: 15px;
+        background-color: #5a5a5a;
+        border-radius: 6px;
+        text-align: center;    
+        box-shadow: 0 8px 16px rgba(10,10,10,.1);
+    } 
+     +breakpoint(desktop) {
+        display flex;
+        flex-grow: 1;
+        flex-shrink: 0;
+     }
+}

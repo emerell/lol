@@ -1,0 +1,30 @@
+.navbar {
+    +breakpoint(desktop) {
+      display: flex;
+      align-items: center;
+    } 
+}
+
+.navbar--start {
+    justify-content: flex-start;
+    margin-right: auto;
+}
+
+.navbar--end {
+    justify-content: flex-end;
+    margin-left: auto;
+}
+
+.navbar__item {
+    display: block;
+    padding: .5rem .75rem;
+    color: #f5f5f5;
+    font-size: 17px;
+    font-weight: bold;   
+}
+
+.navbar__item:hover {
+    +breakpoint(touch) {
+        background-color: #4c4b4b;    
+    }
+}

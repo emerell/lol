@@ -1,0 +1,36 @@
+.app-navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.app-navbar__toggle-button {
+    padding-left: .75rem; 
+    padding-right .75rem;
+    color: #f5f5f5;
+    background: transparent;
+    border: none;  
+    cursor: pointer; 
+    +breakpoint(desktop) {
+        display: none;
+    }  
+}
+
+.app-navbar__logo {
+    padding: .5rem .75rem;    
+}
+
+.app-navbar__logo:hover {
+    +breakpoint(touch) {
+        background-color: #292929;    
+    }  
+}
+
+.app-navbar__search {
+    padding-left: .75rem; 
+    padding-right .75rem;
+    color: #f5f5f5;
+    background: transparent;
+    border: none;   
+    cursor: pointer;
+}

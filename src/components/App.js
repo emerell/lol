@@ -51,7 +51,8 @@ export class App extends Component {
     render() {
         return (
             <Router>
-                <div>
+                <Fragment>
+                    <Header />
                     <Switch>
                         <Route exact path="/" render={props => (
                             <Movies
@@ -70,7 +71,7 @@ export class App extends Component {
                             />
                         )} />
                     </Switch>
-                </div>
+                </Fragment>
             </Router>
         )
     }

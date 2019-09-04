@@ -9,3 +9,15 @@
 .mb-3rem {
   margin-bottom: 3rem;
 }
+
+.is-hidden-touch {
+  +breakpoint(touch) {
+    display: none !important;
+  }  
+}
+
+.is-hidden-desktop {
+  +breakpoint(desktop) {
+    display: none !important;
+  }  
+}
