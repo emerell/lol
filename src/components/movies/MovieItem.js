@@ -22,7 +22,7 @@ export class MovieItem extends Component {
             <div className="column is-half-desktop">
                 <article className="movie-card">
                     <Link to={movieUrl} className="movie-card__poster-box">
-                        <div className="movie-card__background"
+                        <div className="movie-card__background is-hidden-tablet"
                             style={{ backgroundImage: `url(${posterImageUrl})` }}>
                         </div>
                         <img src={posterImageUrl} className="movie-card__poster"></img>
