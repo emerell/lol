@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import AutocompleteSearch from '../AutocompleteSearch';
 
 export default function Header() {
     const [isToggleOn, setIsToggleOn] = useState(false);
@@ -30,11 +31,22 @@ export default function Header() {
                             <span className="app-logo__letter">L</span>
                         </div>
                     </a>
-                    <button type="button" className="app-navbar__search is-hidden-desktop">
-                        <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
-                            <path d="M23.809 21.646l-6.205-6.205c1.167-1.605 1.857-3.579 1.857-5.711 0-5.365-4.365-9.73-9.731-9.73-5.365 0-9.73 4.365-9.73 9.73 0 5.366 4.365 9.73 9.73 9.73 2.034 0 3.923-.627 5.487-1.698l6.238 6.238 2.354-2.354zm-20.955-11.916c0-3.792 3.085-6.877 6.877-6.877s6.877 3.085 6.877 6.877-3.085 6.877-6.877 6.877c-3.793 0-6.877-3.085-6.877-6.877z"/>
-                        </svg>
-                    </button>
+                    <div className="app-navbar__dropdown dropdown is-hidden-desktop">
+                        <AutocompleteSearch 
+                        suggestions={[
+                            "Alligator",
+                            "Bask",
+                            "Crocodilian",
+                            "Death Roll",
+                            "Eggs",
+                            "Jaws",
+                            "Reptile",
+                            "Solitary",
+                            "Tail",
+                            "Wetlands"
+                            ]}
+                        />
+                    </div>
                 </div>
                 <nav className="header__navbar is-hidden-touch">
                     <div className="navbar navbar--start">
@@ -43,11 +55,22 @@ export default function Header() {
                         <a href="#" className="navbar__item">Movies</a>
                     </div>
                     <div className="navbar navbar--end">
-                        <button type="button" className="app-navbar__search is-hidden-touch">
-                            <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
-                                <path d="M23.809 21.646l-6.205-6.205c1.167-1.605 1.857-3.579 1.857-5.711 0-5.365-4.365-9.73-9.731-9.73-5.365 0-9.73 4.365-9.73 9.73 0 5.366 4.365 9.73 9.73 9.73 2.034 0 3.923-.627 5.487-1.698l6.238 6.238 2.354-2.354zm-20.955-11.916c0-3.792 3.085-6.877 6.877-6.877s6.877 3.085 6.877 6.877-3.085 6.877-6.877 6.877c-3.793 0-6.877-3.085-6.877-6.877z"/>
-                            </svg>
-                        </button>
+                        <div className="app-navbar__dropdown dropdown is-hidden-touch">
+                            <AutocompleteSearch 
+                        suggestions={[
+                            "Alligator",
+                            "Bask",
+                            "Crocodilian",
+                            "Death Roll",
+                            "Eggs",
+                            "Jaws",
+                            "Reptile",
+                            "Solitary",
+                            "Tail",
+                            "Wetlands"
+                            ]}
+                        />
+                        </div>
                         <a href="#" className="navbar__item">Login</a>
                         <a href="#" className="navbar__item">Sign up</a>
                     </div>
