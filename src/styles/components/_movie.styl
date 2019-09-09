@@ -1,6 +1,7 @@
 .movie {
     background-color: #2d2d2d;
     padding: 3rem 1.5rem;
+    overflow-x: hidden;
 }
 
 .movie__title {
@@ -9,6 +10,9 @@
     font-weight: 600;
     line-height: 1.125;
     color: #f5f5f5;
+    +breakpoint(mobile) {
+        font-size: 2rem;
+    }
 }
 
 .movie__subtitle {

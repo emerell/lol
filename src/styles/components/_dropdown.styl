@@ -19,8 +19,11 @@
     z-index: 20;    
     padding-left: 15px;
     padding-right: 15px;
-    width: 437px; //TODO: Should be changed
+    width: 437px;
     min-width: 12rem;
+    +breakpoint(mobile) {
+        width: 323px;
+    }
 }
 
 .dropdown__content {

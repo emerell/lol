@@ -32,6 +32,8 @@ class AutocompleteSearch extends Component {
         showSuggestions: false,
         userInput: ""
         });
+
+        this.toggleSearchList();
     };
 
     toggleSearchList() {
