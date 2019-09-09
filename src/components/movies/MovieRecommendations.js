@@ -2,12 +2,16 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 
 export class MovieRecommendations extends Component {
-
+    
     render() {
         return (
             <section className="movie-recommendation section">
                 <div className="container">
-                    <h2 className="movie-recommendation__title title">Recommendations</h2>
+                    { this.props.recommendations.length ? 
+                        <h2 className="movie-recommendation__title title">Recommendations</h2>
+                    : 
+                        (null)
+                    }
                     <div className="columns movie-recommendation__list scroll-list">
                         {this.props.recommendations.map(recommendation => (
                             <div className="column movie-recommendation__item" key={recommendation.id}>
